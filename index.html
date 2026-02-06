@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8th Pay Commission Calculator 2026 | India</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2d4a7c;
+            --accent: #d97706;
+            --accent-light: #fbbf24;
+            --success: #059669;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .info-banner {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            animation: slideIn 0.6s ease-out 0.2s both;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .info-banner h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .info-banner p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            animation: fadeIn 0.6s ease-out;
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h2::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+        }
+
+        .form-group .input-hint {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        .slider-container {
+            margin-top: 1rem;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: linear-gradient(to right, var(--accent-light), var(--accent));
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-value {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .slider-value .current {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-family: 'DM Sans', sans-serif;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .results-section {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .result-card h3 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .result-card .change {
+            font-size: 0.95rem;
+            margin-top: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .result-card .change.positive {
+            color: var(--success);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .comparison-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .comparison-card .factor {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-card .salary {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .comparison-card .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        .breakdown-table {
+            width: 100%;
+            margin-top: 1rem;
+            border-collapse: collapse;
+        }
+
+        .breakdown-table th,
+        .breakdown-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breakdown-table th {
+            background: var(--background);
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .breakdown-table td {
+            font-size: 1rem;
+        }
+
+        .breakdown-table tr:hover {
+            background: rgba(217, 119, 6, 0.05);
+        }
+
+        .breakdown-table .amount {
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+        }
+
+        .total-row {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white !important;
+        }
+
+        .total-row td {
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+        }
+
+        .arrears-section {
+            background: linear-gradient(135deg, var(--success) 0%, #10b981 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .arrears-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .arrears-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .arrears-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1.2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .arrears-item .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.3rem;
+        }
+
+        .arrears-item .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .disclaimer {
+            background: #fef3c7;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #92400e;
+        }
+
+        .disclaimer strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #78350f;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab:hover {
+            color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .pay-level-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pay-level-btn {
+            padding: 1rem;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .pay-level-btn:hover {
+            border-color: var(--accent);
+            background: rgba(217, 119, 6, 0.05);
+        }
+
+        .pay-level-btn.selected {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            color: white;
+            border-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>8th Pay Commission Calculator</h1>
+            <p class="subtitle">Calculate Your Revised Salary & Arrears for 2026</p>
+        </div>
+
+        <div class="info-banner">
+            <h3>📊 Implementation Expected: January 1, 2026</h3>
+            <p>The 8th Pay Commission will benefit approximately 50 lakh central government employees and 69 lakh pensioners. Expected fitment factor ranges from 1.83 to 2.86, with expert estimates around 2.28 to 2.46.</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Input Section -->
+            <div class="card">
+                <h2>Input Your Details</h2>
+                
+                <div class="tab-container">
+                    <button class="tab active" onclick="switchTab('manual')">Manual Entry</button>
+                    <button class="tab" onclick="switchTab('level')">By Pay Level</button>
+                </div>
+
+                <div id="manual-tab" class="tab-content active">
+                    <div class="form-group">
+                        <label>Current Basic Pay (7th CPC) ₹</label>
+                        <input type="number" id="basicPay" placeholder="e.g., 18000" value="18000" oninput="calculate()">
+                        <span class="input-hint">Enter your current basic pay as per 7th Pay Commission</span>
+                    </div>
+                </div>
+
+                <div id="level-tab" class="tab-content">
+                    <div class="form-group">
+                        <label>Select Pay Level</label>
+                        <div class="pay-level-selector">
+                            <button class="pay-level-btn" onclick="selectLevel(18000)">Level 1<br>₹18,000</button>
+                            <button class="pay-level-btn" onclick="selectLevel(19900)">Level 2<br>₹19,900</button>
+                            <button class="pay-level-btn" onclick="selectLevel(21700)">Level 3<br>₹21,700</button>
+                            <button class="pay-level-btn" onclick="selectLevel(25500)">Level 4<br>₹25,500</button>
+                            <button class="pay-level-btn" onclick="selectLevel(29200)">Level 5<br>₹29,200</button>
+                            <button class="pay-level-btn" onclick="selectLevel(35400)">Level 6<br>₹35,400</button>
+                            <button class="pay-level-btn" onclick="selectLevel(44900)">Level 7<br>₹44,900</button>
+                            <button class="pay-level-btn" onclick="selectLevel(47600)">Level 8<br>₹47,600</button>
+                            <button class="pay-level-btn" onclick="selectLevel(53100)">Level 9<br>₹53,100</button>
+                            <button class="pay-level-btn" onclick="selectLevel(56100)">Level 10<br>₹56,100</button>
+                            <button class="pay-level-btn" onclick="selectLevel(67700)">Level 11<br>₹67,700</button>
+                            <button class="pay-level-btn" onclick="selectLevel(78800)">Level 12<br>₹78,800</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Fitment Factor</label>
+                    <div class="slider-container">
+                        <input type="range" min="1.83" max="2.86" step="0.01" value="2.28" class="slider" id="fitmentSlider" oninput="updateFitment()">
+                        <div class="slider-value">
+                            <span>Min: 1.83</span>
+                            <span class="current" id="fitmentValue">2.28</span>
+                            <span>Max: 2.86</span>
+                        </div>
+                    </div>
+                    <span class="input-hint">Expected range: 1.83 to 2.86 | Expert estimate: 2.28</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Current DA Percentage (%)</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="70" step="1" value="55" class="slider" id="daSlider" oninput="updateDA()">
+                        <div class="slider-value">
+                            <span>0%</span>
+                            <span class="current" id="daValue">55%</span>
+                            <span>70%</span>
+                        </div>
+                    </div>
+                    <span class="input-hint">Current DA as of your last increment (expected 70% by Jan 2026)</span>
+                </div>
+
+                <div class="form-group">
+                    <label>HRA Classification</label>
+                    <select id="hraClass" onchange="calculate()">
+                        <option value="24">X - Metro Cities (24%)</option>
+                        <option value="16">Y - Other Cities (16%)</option>
+                        <option value="8">Z - Small Towns (8%)</option>
+                    </select>
+                    <span class="input-hint">Based on your city of posting</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Transport Allowance (TA) ₹</label>
+                    <input type="number" id="ta" placeholder="e.g., 3600" value="3600" oninput="calculate()">
+                    <span class="input-hint">Monthly transport allowance</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Arrears Calculation Period (Months)</label>
+                    <input type="number" id="arrearMonths" placeholder="e.g., 12" value="12" min="0" oninput="calculate()">
+                    <span class="input-hint">Number of months for arrears (if implementation is delayed)</span>
+                </div>
+
+                <button class="btn" onclick="calculate()">Calculate 8th CPC Salary</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="card results-section" id="results">
+                <h2>Your Revised Salary</h2>
+                
+                <div class="result-card">
+                    <h3>Current Total Salary (7th CPC)</h3>
+                    <div class="value" id="currentSalary">₹0</div>
+                    <div class="change">Including Basic + DA + HRA + TA</div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Revised Basic Pay (8th CPC)</h3>
+                    <div class="value" id="newBasic">₹0</div>
+                    <div class="change positive" id="basicIncrease">↑ +₹0 increase</div>
+                </div>
+
+                <div class="result-card">
+                    <h3>New Total Salary (8th CPC)</h3>
+                    <div class="value" id="newSalary">₹0</div>
+                    <div class="change positive" id="salaryIncrease">↑ +₹0 (+0%)</div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Annual Salary Increase</h3>
+                    <div class="value" id="annualIncrease">₹0</div>
+                    <div class="change">Per year additional income</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Breakdown -->
+        <div class="card results-section" id="breakdown">
+            <h2>Detailed Salary Breakdown</h2>
+            
+            <table class="breakdown-table">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>7th CPC</th>
+                        <th>8th CPC</th>
+                        <th>Increase</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Basic Pay</td>
+                        <td class="amount" id="old-basic">₹0</td>
+                        <td class="amount" id="new-basic">₹0</td>
+                        <td class="amount" id="diff-basic">₹0</td>
+                    </tr>
+                    <tr>
+                        <td>Dearness Allowance (DA)</td>
+                        <td class="amount" id="old-da">₹0</td>
+                        <td class="amount" id="new-da">₹0</td>
+                        <td class="amount" id="diff-da">₹0</td>
+                    </tr>
+                    <tr>
+                        <td>House Rent Allowance (HRA)</td>
+                        <td class="amount" id="old-hra">₹0</td>
+                        <td class="amount" id="new-hra">₹0</td>
+                        <td class="amount" id="diff-hra">₹0</td>
+                    </tr>
+                    <tr>
+                        <td>Transport Allowance (TA)</td>
+                        <td class="amount" id="old-ta">₹0</td>
+                        <td class="amount" id="new-ta">₹0</td>
+                        <td class="amount" id="diff-ta">₹0</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td>Gross Salary</td>
+                        <td id="old-total">₹0</td>
+                        <td id="new-total">₹0</td>
+                        <td id="diff-total">₹0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="disclaimer">
+                <strong>Important Note:</strong>
+                DA (Dearness Allowance) will be reset to 0% after 8th Pay Commission implementation, but the existing DA is merged into the new basic pay through the fitment factor. DA will then start fresh and be revised biannually. The calculations above show initial implementation values.
+            </div>
+        </div>
+
+        <!-- Arrears Section -->
+        <div class="results-section arrears-section" id="arrears">
+            <h3>💰 Estimated Arrears Payment</h3>
+            <p style="opacity: 0.9; margin-bottom: 1rem;">If implementation is delayed from January 2026, you will receive arrears for the intervening period.</p>
+            
+            <div class="arrears-grid">
+                <div class="arrears-item">
+                    <div class="label">Monthly Difference</div>
+                    <div class="value" id="monthlyDiff">₹0</div>
+                </div>
+                <div class="arrears-item">
+                    <div class="label">Arrears Period</div>
+                    <div class="value" id="arrearPeriod">0 months</div>
+                </div>
+                <div class="arrears-item">
+                    <div class="label">Total Arrears</div>
+                    <div class="value" id="totalArrears">₹0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="card results-section" id="comparison">
+            <h2>Fitment Factor Comparison</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">See how different fitment factors affect your salary</p>
+            
+            <div class="comparison-grid" id="comparisonGrid">
+                <!-- Dynamically generated -->
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong>
+            This calculator provides estimated projections based on expected 8th Pay Commission parameters. Actual salary revisions will depend on the official recommendations and government approval. The fitment factor, allowances, and implementation date are subject to change. This tool is for informational purposes only and should not be considered as official government data. Please refer to official government notifications for accurate information.
+        </div>
+
+        <div class="footer">
+            <p>8th Pay Commission Calculator 2026 | Made for Central Government Employees of India</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">Data sources: Finance Ministry announcements, expert analyses, and historical Pay Commission patterns</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            if (tab === 'manual') {
+                document.querySelector('.tab:first-child').classList.add('active');
+                document.getElementById('manual-tab').classList.add('active');
+            } else {
+                document.querySelector('.tab:last-child').classList.add('active');
+                document.getElementById('level-tab').classList.add('active');
+            }
+        }
+
+        function selectLevel(amount) {
+            document.querySelectorAll('.pay-level-btn').forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+            document.getElementById('basicPay').value = amount;
+            calculate();
+        }
+
+        function updateFitment() {
+            const value = document.getElementById('fitmentSlider').value;
+            document.getElementById('fitmentValue').textContent = parseFloat(value).toFixed(2);
+            calculate();
+        }
+
+        function updateDA() {
+            const value = document.getElementById('daSlider').value;
+            document.getElementById('daValue').textContent = value + '%';
+            calculate();
+        }
+
+        function formatCurrency(amount) {
+            return '₹' + Math.round(amount).toLocaleString('en-IN');
+        }
+
+        function calculate() {
+            // Get inputs
+            const basicPay = parseFloat(document.getElementById('basicPay').value) || 0;
+            const fitment = parseFloat(document.getElementById('fitmentSlider').value);
+            const daPercent = parseFloat(document.getElementById('daSlider').value);
+            const hraPercent = parseFloat(document.getElementById('hraClass').value);
+            const ta = parseFloat(document.getElementById('ta').value) || 0;
+            const arrearMonths = parseFloat(document.getElementById('arrearMonths').value) || 0;
+
+            if (basicPay === 0) return;
+
+            // Current salary (7th CPC)
+            const currentDA = basicPay * (daPercent / 100);
+            const currentHRA = basicPay * (hraPercent / 100);
+            const currentTotal = basicPay + currentDA + currentHRA + ta;
+
+            // New salary (8th CPC)
+            const newBasic = basicPay * fitment;
+            const newDA = 0; // DA resets to 0 initially
+            const newHRA = newBasic * (hraPercent / 100);
+            const newTotal = newBasic + newDA + newHRA + ta;
+
+            // Increases
+            const basicIncrease = newBasic - basicPay;
+            const salaryIncrease = newTotal - currentTotal;
+            const percentIncrease = ((salaryIncrease / currentTotal) * 100).toFixed(1);
+            const annualIncrease = salaryIncrease * 12;
+
+            // Arrears
+            const monthlyDiff = salaryIncrease;
+            const totalArrears = monthlyDiff * arrearMonths;
+
+            // Update main results
+            document.getElementById('currentSalary').textContent = formatCurrency(currentTotal);
+            document.getElementById('newBasic').textContent = formatCurrency(newBasic);
+            document.getElementById('basicIncrease').textContent = '↑ +' + formatCurrency(basicIncrease) + ' increase';
+            document.getElementById('newSalary').textContent = formatCurrency(newTotal);
+            document.getElementById('salaryIncrease').textContent = '↑ +' + formatCurrency(salaryIncrease) + ' (+' + percentIncrease + '%)';
+            document.getElementById('annualIncrease').textContent = formatCurrency(annualIncrease);
+
+            // Update breakdown table
+            document.getElementById('old-basic').textContent = formatCurrency(basicPay);
+            document.getElementById('new-basic').textContent = formatCurrency(newBasic);
+            document.getElementById('diff-basic').textContent = formatCurrency(basicIncrease);
+
+            document.getElementById('old-da').textContent = formatCurrency(currentDA);
+            document.getElementById('new-da').textContent = formatCurrency(newDA);
+            document.getElementById('diff-da').textContent = formatCurrency(newDA - currentDA);
+
+            document.getElementById('old-hra').textContent = formatCurrency(currentHRA);
+            document.getElementById('new-hra').textContent = formatCurrency(newHRA);
+            document.getElementById('diff-hra').textContent = formatCurrency(newHRA - currentHRA);
+
+            document.getElementById('old-ta').textContent = formatCurrency(ta);
+            document.getElementById('new-ta').textContent = formatCurrency(ta);
+            document.getElementById('diff-ta').textContent = formatCurrency(0);
+
+            document.getElementById('old-total').textContent = formatCurrency(currentTotal);
+            document.getElementById('new-total').textContent = formatCurrency(newTotal);
+            document.getElementById('diff-total').textContent = formatCurrency(salaryIncrease);
+
+            // Update arrears
+            document.getElementById('monthlyDiff').textContent = formatCurrency(monthlyDiff);
+            document.getElementById('arrearPeriod').textContent = arrearMonths + ' months';
+            document.getElementById('totalArrears').textContent = formatCurrency(totalArrears);
+
+            // Update comparison
+            updateComparison(basicPay, hraPercent, ta);
+
+            // Show results
+            document.querySelectorAll('.results-section').forEach(section => {
+                section.classList.add('active');
+            });
+        }
+
+        function updateComparison(basicPay, hraPercent, ta) {
+            const factors = [1.83, 2.28, 2.46, 2.86];
+            const grid = document.getElementById('comparisonGrid');
+            grid.innerHTML = '';
+
+            factors.forEach(factor => {
+                const newBasic = basicPay * factor;
+                const newHRA = newBasic * (hraPercent / 100);
+                const newTotal = newBasic + newHRA + ta;
+
+                const card = document.createElement('div');
+                card.className = 'comparison-card';
+                card.innerHTML = `
+                    <div class="factor">FF: ${factor}</div>
+                    <div class="salary">${formatCurrency(newTotal)}</div>
+                    <div class="label">Monthly Gross</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
