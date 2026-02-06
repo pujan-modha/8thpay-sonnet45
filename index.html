@@ -612,15 +612,14 @@
 
                 <div class="form-group">
                     <label>Fitment Factor</label>
-                    <div class="slider-container">
-                        <input type="range" min="1.83" max="2.86" step="0.01" value="2.28" class="slider" id="fitmentSlider" oninput="updateFitment()">
-                        <div class="slider-value">
-                            <span>Min: 1.83</span>
-                            <span class="current" id="fitmentValue">2.28</span>
-                            <span>Max: 2.86</span>
-                        </div>
-                    </div>
-                    <span class="input-hint">Expected range: 1.83 to 2.86 | Expert estimate: 2.28</span>
+                    <input type="number" id="fitmentFactor" placeholder="e.g., 2.28" value="2.28" step="0.01" min="1.5" oninput="calculate()">
+                    <span class="input-hint">Expected range: 1.83 to 2.86 | Expert estimate: 2.28 | Enter any value</span>
+                </div>
+
+                <div class="form-group">
+                    <label>DA Merger Percentage (%)</label>
+                    <input type="number" id="daMergePercent" placeholder="e.g., 50" value="0" step="1" min="0" max="100" oninput="calculate()">
+                    <span class="input-hint">Percentage of current DA to merge into basic pay before fitment (0-100%). 0 = no merger, 100 = full merger</span>
                 </div>
 
                 <div class="form-group">
@@ -740,7 +739,7 @@
 
             <div class="disclaimer">
                 <strong>Important Note:</strong>
-                DA (Dearness Allowance) will be reset to 0% after 8th Pay Commission implementation, but the existing DA is merged into the new basic pay through the fitment factor. DA will then start fresh and be revised biannually. The calculations above show initial implementation values.
+                DA (Dearness Allowance) will be reset to 0% after 8th Pay Commission implementation. If you've specified a DA merger percentage above, that portion of DA is added to basic pay before applying the fitment factor. The remaining DA is incorporated through the fitment factor calculation. DA will then start fresh and be revised biannually. The calculations above show initial implementation values.
             </div>
         </div>
 
@@ -807,12 +806,6 @@
             calculate();
         }
 
-        function updateFitment() {
-            const value = document.getElementById('fitmentSlider').value;
-            document.getElementById('fitmentValue').textContent = parseFloat(value).toFixed(2);
-            calculate();
-        }
-
         function updateDA() {
             const value = document.getElementById('daSlider').value;
             document.getElementById('daValue').textContent = value + '%';
@@ -825,22 +818,28 @@
 
         function calculate() {
             // Get inputs
-            const basicPay = parseFloat(document.getElementById('basicPay').value) || 0;
-            const fitment = parseFloat(document.getElementById('fitmentSlider').value);
+            let basicPay = parseFloat(document.getElementById('basicPay').value) || 0;
+            const fitment = parseFloat(document.getElementById('fitmentFactor').value) || 2.28;
             const daPercent = parseFloat(document.getElementById('daSlider').value);
             const hraPercent = parseFloat(document.getElementById('hraClass').value);
             const ta = parseFloat(document.getElementById('ta').value) || 0;
             const arrearMonths = parseFloat(document.getElementById('arrearMonths').value) || 0;
+            const daMergePercent = parseFloat(document.getElementById('daMergePercent').value) || 0;
 
             if (basicPay === 0) return;
 
+            // Calculate DA merger
+            const currentDAAmount = basicPay * (daPercent / 100);
+            const mergedDA = currentDAAmount * (daMergePercent / 100);
+            const effectiveBasicForFitment = basicPay + mergedDA;
+
             // Current salary (7th CPC)
-            const currentDA = basicPay * (daPercent / 100);
+            const currentDA = currentDAAmount;
             const currentHRA = basicPay * (hraPercent / 100);
             const currentTotal = basicPay + currentDA + currentHRA + ta;
 
-            // New salary (8th CPC)
-            const newBasic = basicPay * fitment;
+            // New salary (8th CPC) - fitment applies to (basic + merged DA)
+            const newBasic = effectiveBasicForFitment * fitment;
             const newDA = 0; // DA resets to 0 initially
             const newHRA = newBasic * (hraPercent / 100);
             const newTotal = newBasic + newDA + newHRA + ta;
@@ -890,7 +889,7 @@
             document.getElementById('totalArrears').textContent = formatCurrency(totalArrears);
 
             // Update comparison
-            updateComparison(basicPay, hraPercent, ta);
+            updateComparison(effectiveBasicForFitment, hraPercent, ta);
 
             // Show results
             document.querySelectorAll('.results-section').forEach(section => {
