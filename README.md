@@ -1,1 +1,1 @@
-# 8th Pay Calculator using Sonnet 4.5
+# 8th Pay Calculator using Claude Sonnet 4.5
